@@ -13,6 +13,16 @@ MonoBehaviour:
   m_Name: NPC_1
   m_EditorClassIdentifier: 
   actors: {fileID: 2857901007612130909, guid: 6ba53d30335690e478afabe5495a7ec1, type: 3}
-  speakerSprite: {fileID: -1457920817, guid: 44b1a7af3dc7a104191057c8b5fbce00, type: 3}
-  sentence: "Ol\xE1, mundo!"
-  dialogues: []
+  speakerSprite: {fileID: 0}
+  sentence: 
+  dialogues:
+  - actorName: 
+    profile: {fileID: -1457920817, guid: 44b1a7af3dc7a104191057c8b5fbce00, type: 3}
+    sentence:
+      portuguese: "Ol\xE1, mundo!"
+      english: 
+  - actorName: 
+    profile: {fileID: 0}
+    sentence:
+      portuguese: Tudo bem?
+      english: 
