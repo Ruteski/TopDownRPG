@@ -9,6 +9,8 @@ public class Player : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector2 _direction;
 
+    public Vector2 Direction { get => _direction; set => _direction = value; }
+
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();
     }
@@ -19,6 +21,6 @@ public class Player : MonoBehaviour
 
     private void FixedUpdate() {
         //_rb.position = _direction * _speed;
-        _rb.MovePosition(_rb.position + _direction * _speed * Time.deltaTime);
+        _rb.MovePosition(_rb.position + _direction * _speed * Time.fixedDeltaTime);
     }
 }
