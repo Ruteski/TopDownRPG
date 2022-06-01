@@ -4876,8 +4876,8 @@ GameObject:
   - component: {fileID: 1035467471}
   - component: {fileID: 1035467470}
   - component: {fileID: 1035467469}
-  - component: {fileID: 1035467468}
   - component: {fileID: 1035467473}
+  - component: {fileID: 1035467468}
   - component: {fileID: 1035467474}
   m_Layer: 0
   m_Name: Player
@@ -4899,6 +4899,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 5
+  _runSpeed: 7
 --- !u!61 &1035467469
 BoxCollider2D:
   m_ObjectHideFlags: 0

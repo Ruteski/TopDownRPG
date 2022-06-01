@@ -6,7 +6,7 @@ using UnityEngine;
 /* Transicoes
  * 0 - idle
  * 1 - walking
- 
+ * 2 - run
  */
 
 public class PlayerAnim : MonoBehaviour
@@ -25,6 +25,14 @@ public class PlayerAnim : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        OnMove();
+        OnRun();
+    }
+
+
+    #region Movement
+
+    private void OnMove() {
         if (_player.Direction.sqrMagnitude > 0) {
             _animator.SetInteger("transition", 1);
         } else {
@@ -37,4 +45,12 @@ public class PlayerAnim : MonoBehaviour
             transform.eulerAngles = new Vector2(0, 180);
         }
     }
+
+    private void OnRun() {
+        if (_player.IsRunning) {
+            _animator.SetInteger("transition", 2);
+        }
+    }
+
+    #endregion
 }
