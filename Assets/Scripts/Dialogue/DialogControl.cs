@@ -14,11 +14,16 @@ public class DialogControl : MonoBehaviour
     [Header("Settings")]
     public float typingSpeed; //velocidade da fala
 
-
     //variaveis de controle
     private bool _isShowing; //se a janela esta visivel
     private int _index; //index das sentenças
     private string[] _sentences;
+
+    public static DialogControl instance;
+
+    private void Awake() {
+        instance = this;
+    }
 
     void Start()
     {
