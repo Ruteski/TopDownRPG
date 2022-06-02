@@ -16,18 +16,18 @@ MonoBehaviour:
   speakerSprite: {fileID: 0}
   sentence: 
   dialogues:
-  - actorName: "Mo\xE7s"
+  - actorName: "Mo\xE7a"
     profile: {fileID: 0}
     sentence:
       portuguese: "Ol\xE1 querido jogador, tudo bem com voc\xEA?"
-      english: 
+      english: ' Hello dear player, how are you?'
   - actorName: Jogador
-    profile: {fileID: 21300000, guid: e92ad5bad6800fd468f75ed6fd9045c5, type: 3}
+    profile: {fileID: 1680920499, guid: 362363346a650d549810fb5ed7eb6a56, type: 3}
     sentence:
       portuguese: "Tudo bem sim e com voc\xEA?"
-      english: 
-  - actorName: NPC
+      english: ' I''m fine and you?'
+  - actorName: "Mo\xE7a"
     profile: {fileID: 21300000, guid: e92ad5bad6800fd468f75ed6fd9045c5, type: 3}
     sentence:
       portuguese: Eu estou bem.!!!! s2
-      english: 
+      english: ' I am fine.!!!! s2'

@@ -5,6 +5,14 @@ using UnityEngine.UI;
 
 public class DialogControl : MonoBehaviour
 {
+    [System.Serializable]
+    public enum Idiom {
+        pt,
+        eng
+    }
+
+    public Idiom language;
+
     [Header("Components")]
     public GameObject dialogueObj; //janela do dialogo
     public Image profileSprite; //sprite do perfil
@@ -45,7 +53,19 @@ public class DialogControl : MonoBehaviour
 
     //pula pra proxima frase/fala
     public void NextSentence() {
-
+        if (speechText.text == _sentences[_index]) {
+            if (_index < _sentences.Length - 1) {
+                _index++;
+                speechText.text = "";
+                StartCoroutine(TypeSentence());
+            } else { // quando terminam os textos
+                speechText.text = "";
+                _index = 0;
+                dialogueObj.SetActive(false);
+                _sentences = null;
+                _isShowing = false;
+            }
+        }
     }
 
     //chamar a fala do npc

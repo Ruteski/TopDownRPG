@@ -24,7 +24,14 @@ public class NPC_Dialogue : MonoBehaviour
 
     private void GetNPCInfo() {
         for (int i = 0 ; i < _dialogue.dialogues.Count ; i++) {
-            _sentences.Add(_dialogue.dialogues[i].sentence.portuguese);
+            switch(DialogControl.instance.language){
+                case DialogControl.Idiom.pt:
+                    _sentences.Add(_dialogue.dialogues[i].sentence.portuguese);
+                    break;
+                case DialogControl.Idiom.eng:
+                    _sentences.Add(_dialogue.dialogues[i].sentence.english);
+                    break;
+            }
         }
     }
 
@@ -39,7 +46,6 @@ public class NPC_Dialogue : MonoBehaviour
             _playerHit = true;
         } else {
             _playerHit = false;
-            DialogControl.instance.dialogueObj.SetActive(false);
         }
     }
 
