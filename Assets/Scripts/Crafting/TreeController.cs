@@ -10,7 +10,7 @@ public class TreeController : MonoBehaviour
     [SerializeField] private ParticleSystem _leafs;
 
     private Animator _animator;
-    
+    private bool _isCut;
 
     private void Start() {
         _animator = GetComponent<Animator>();
@@ -29,11 +29,12 @@ public class TreeController : MonoBehaviour
             }
 
             _animator.SetTrigger("cut");
+            _isCut = true;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        if (collision.CompareTag("Axe")) {
+        if (collision.CompareTag("Axe") && !_isCut) {
             OnHit();
         }
     }
