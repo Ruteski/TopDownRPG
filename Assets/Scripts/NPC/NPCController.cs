@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
+public class NPCController : MonoBehaviour
 {
     [SerializeField] private List<Transform> _paths = new List<Transform>();
     [SerializeField] private float _speed;

@@ -13,13 +13,13 @@ using UnityEngine;
 public class PlayerAnim : MonoBehaviour
 {
 
-    private Player _player;
+    private PlayerController _player;
     private Animator _animator;
 
     // Start is called before the first frame update
     void Start()
     {
-        _player = GetComponent<Player>();
+        _player = GetComponent<PlayerController>();
         _animator = GetComponent<Animator>();
     }
 
