@@ -7,8 +7,10 @@ public class TreeController : MonoBehaviour
     [SerializeField] private float _treeHealth;
     [SerializeField] private GameObject _woodPrefab;
     [SerializeField] private int _totalWood;
+    [SerializeField] private ParticleSystem _leafs;
 
     private Animator _animator;
+    
 
     private void Start() {
         _animator = GetComponent<Animator>();
@@ -19,6 +21,7 @@ public class TreeController : MonoBehaviour
     public void OnHit() {
         _treeHealth--;
         _animator.SetTrigger("isHit");
+        _leafs.Play();
 
         if (_treeHealth <= 0) {
             for (int i = 0; i < _totalWood; i++) {
