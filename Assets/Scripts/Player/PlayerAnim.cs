@@ -63,6 +63,10 @@ public class PlayerAnim : MonoBehaviour
         if (_player.IsCutting) {
             _animator.SetInteger("transition", 3);
         }
+
+        if (_player.IsDigging) {
+            _animator.SetInteger("transition", 4);
+        }
     }
 
     //private void OnRun() {

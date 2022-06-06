@@ -9,16 +9,19 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody2D _rb;
     private Vector2 _direction;
+    private int _handlingObj = 1;
 
     private float _initialSpeed;
     private bool _isRunning;
     private bool _isRolling;
     private bool _isCutting;
+    private bool _isDigging;
 
     public Vector2 Direction { get => _direction; set => _direction = value; }
     public bool IsRunning { get => _isRunning; set => _isRunning = value; }
     public bool IsRolling { get => _isRolling; set => _isRolling = value; }
     public bool IsCutting { get => _isCutting; set => _isCutting = value; }
+    public bool IsDigging { get => _isDigging; set => _isDigging = value; }
 
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();
@@ -26,10 +29,19 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
+        if (Input.GetKeyDown(KeyCode.Alpha1)) {
+            _handlingObj = 1;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Alpha2)) {
+            _handlingObj = 2;
+        }
+
         OnInput();
         OnRun();
         OnRolling();
         OnCutting();
+        OnDiggin();
     }
 
     private void FixedUpdate() {
@@ -70,14 +82,30 @@ public class PlayerController : MonoBehaviour
     }
 
     private void OnCutting() {
-        if (Input.GetMouseButtonDown(0)) {
-            _isCutting = true;
-            _speed = 0;
-        }
+        if (_handlingObj == 1) {
+            if (Input.GetMouseButtonDown(0)) {
+                _isCutting = true;
+                _speed = 0;
+            }
 
-        if (Input.GetMouseButtonUp(0)) {
-            _isCutting = false;
-            _speed = _initialSpeed;
+            if (Input.GetMouseButtonUp(0)) {
+                _isCutting = false;
+                _speed = _initialSpeed;
+            }
+        }
+    }
+
+    private void OnDiggin() {
+        if (_handlingObj == 2) {
+            if (Input.GetMouseButtonDown(0)) {
+                _isDigging = true;
+                _speed = 0;
+            }
+
+            if (Input.GetMouseButtonUp(0)) {
+                _isDigging = false;
+                _speed = _initialSpeed;
+            }
         }
     }
 
