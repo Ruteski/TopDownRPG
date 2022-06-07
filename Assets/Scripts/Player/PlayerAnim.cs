@@ -8,6 +8,8 @@ using UnityEngine;
  * 1 - walking
  * 2 - run
  * 3 - roll
+ * 4 - dig
+ * 5 - watering
  */
 
 public class PlayerAnim : MonoBehaviour
@@ -66,6 +68,10 @@ public class PlayerAnim : MonoBehaviour
 
         if (_player.IsDigging) {
             _animator.SetInteger("transition", 4);
+        }
+
+        if (_player.IsWatering) {
+            _animator.SetInteger("transition", 5);
         }
     }
 

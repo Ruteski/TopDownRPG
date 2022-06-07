@@ -10,21 +10,25 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rb;
     private Vector2 _direction;
     private int _handlingObj = 1;
-
     private float _initialSpeed;
+    private Items _playerItems;
+
     private bool _isRunning;
     private bool _isRolling;
     private bool _isCutting;
     private bool _isDigging;
+    private bool _isWatering;
 
     public Vector2 Direction { get => _direction; set => _direction = value; }
     public bool IsRunning { get => _isRunning; set => _isRunning = value; }
     public bool IsRolling { get => _isRolling; set => _isRolling = value; }
     public bool IsCutting { get => _isCutting; set => _isCutting = value; }
     public bool IsDigging { get => _isDigging; set => _isDigging = value; }
+    public bool IsWatering { get => _isWatering; set => _isWatering = value; }
 
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();
+        _playerItems = GetComponent<Items>();
         _initialSpeed = _speed;
     }
 
@@ -37,11 +41,16 @@ public class PlayerController : MonoBehaviour
             _handlingObj = 2;
         }
 
+        if (Input.GetKeyDown(KeyCode.Alpha3)) {
+            _handlingObj = 3;
+        }
+
         OnInput();
         OnRun();
         OnRolling();
         OnCutting();
         OnDiggin();
+        OnWatering();
     }
 
     private void FixedUpdate() {
@@ -105,6 +114,25 @@ public class PlayerController : MonoBehaviour
             if (Input.GetMouseButtonUp(0)) {
                 _isDigging = false;
                 _speed = _initialSpeed;
+            }
+        }
+    }
+
+    private void OnWatering() {
+        if (_handlingObj == 3) {
+            if (Input.GetMouseButtonDown(0) && _playerItems.TotalWater > 0) {
+                _isWatering = true;
+                _speed = 0;
+                
+            }
+
+            if (Input.GetMouseButtonUp(0) || _playerItems.TotalWater <= 0) {
+                _isWatering = false;
+                _speed = _initialSpeed;
+            }
+
+            if (_isWatering) {
+                _playerItems.TotalWater -= 0.01f;
             }
         }
     }
