@@ -39,7 +39,7 @@ public class SlotController : MonoBehaviour
                 //coletar a cenoura
                 if (Input.GetKeyDown(KeyCode.E)) {
                     _spriteRenderer.sprite = _hole;
-                    _playerItems.Carrots++;
+                    _playerItems.TotalCarrots++;
                     _currentWater = 0f;
                 }
             }
