@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2857901007612130908}
   - component: {fileID: 2857901007612130907}
+  - component: {fileID: 2857901007617613601}
+  - component: {fileID: 2857901007617613604}
   m_Layer: 0
   m_Name: NPC_1
   m_TagString: Untagged
@@ -54,6 +56,42 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2857901007617613601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857901007612130909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d9db34152b15b145b9f70b35ff1f1da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogueRange: 1.04
+  _playerLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  _dialogue: {fileID: 11400000, guid: 81ae4aedabb98374dad5748ef2a7d050, type: 2}
+--- !u!114 &2857901007617613604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2857901007612130909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 338221e343681b648be261439416312d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _paths:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  _speed: 2
 --- !u!1 &2857901007801704480
 GameObject:
   m_ObjectHideFlags: 0
