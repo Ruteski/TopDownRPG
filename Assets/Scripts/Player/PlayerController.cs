@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     public bool IsCutting { get => _isCutting; set => _isCutting = value; }
     public bool IsDigging { get => _isDigging; set => _isDigging = value; }
     public bool IsWatering { get => _isWatering; set => _isWatering = value; }
+    public int HandlingObj { get => _handlingObj; set => _handlingObj = value; }
 
     private void Start() {
         _rb = GetComponent<Rigidbody2D>();

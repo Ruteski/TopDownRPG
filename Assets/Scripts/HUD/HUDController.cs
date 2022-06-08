@@ -5,14 +5,28 @@ using UnityEngine.UI;
 
 public class HUDController : MonoBehaviour
 {
+    [Header("Items")]
     [SerializeField] private Image _waterBar;
     [SerializeField] private Image _woodBar;
     [SerializeField] private Image _carrotBar;
 
+    [Header("Tools")]
+    //[SerializeField] private Image _axeUI;
+    //[SerializeField] private Image _shovelUI;
+    //[SerializeField] private Image _bucketUI;
+
+    public List<Image> toolsUI = new List<Image>();
+
+    [SerializeField] private Color _selectColor;
+    [SerializeField] private Color _alphaColor;
+
     private Items _playerItems;
+    private PlayerController _playerController;
 
     private void Awake() {
         _playerItems = FindObjectOfType<Items>();
+        //_playerController = FindObjectOfType<PlayerController>();
+        _playerController = _playerItems.GetComponent<PlayerController>();
     }
 
     private void Start() {
@@ -26,5 +40,14 @@ public class HUDController : MonoBehaviour
         _waterBar.fillAmount = _playerItems.TotalWater / _playerItems.WaterLimit1;
         _woodBar.fillAmount = _playerItems.TotalWood / _playerItems.WoodLimit;
         _carrotBar.fillAmount = _playerItems.TotalCarrots / _playerItems.CarrotsLimit;
+
+        for (var i = 1; i <= toolsUI.Count; i++) {
+            if (i == _playerController.HandlingObj) {
+                toolsUI[i-1].color = _selectColor;
+            } else {
+                toolsUI[i-1].color = _alphaColor;
+            }
+            
+        }
     }
 }
