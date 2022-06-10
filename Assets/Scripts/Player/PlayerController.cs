@@ -19,6 +19,8 @@ public class PlayerController : MonoBehaviour
     private bool _isDigging;
     private bool _isWatering;
 
+    public bool isPaused;
+
     public Vector2 Direction { get => _direction; set => _direction = value; }
     public bool IsRunning { get => _isRunning; set => _isRunning = value; }
     public bool IsRolling { get => _isRolling; set => _isRolling = value; }
@@ -34,28 +36,32 @@ public class PlayerController : MonoBehaviour
     }
 
     private void Update() {
-        if (Input.GetKeyDown(KeyCode.Alpha1)) {
-            _handlingObj = 1;
-        }
+        if (!isPaused) {
+            if (Input.GetKeyDown(KeyCode.Alpha1)) {
+                _handlingObj = 1;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha2)) {
-            _handlingObj = 2;
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha2)) {
+                _handlingObj = 2;
+            }
 
-        if (Input.GetKeyDown(KeyCode.Alpha3)) {
-            _handlingObj = 3;
-        }
+            if (Input.GetKeyDown(KeyCode.Alpha3)) {
+                _handlingObj = 3;
+            }
 
-        OnInput();
-        OnRun();
-        OnRolling();
-        OnCutting();
-        OnDiggin();
-        OnWatering();
+            OnInput();
+            OnRun();
+            OnRolling();
+            OnCutting();
+            OnDiggin();
+            OnWatering();
+        }
     }
 
     private void FixedUpdate() {
-        OnMove();
+        if (!isPaused) {
+            OnMove();
+        }
     }
 
     #region Movement

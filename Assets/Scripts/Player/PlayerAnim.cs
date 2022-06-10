@@ -17,12 +17,15 @@ public class PlayerAnim : MonoBehaviour
 
     private PlayerController _player;
     private Animator _animator;
+    private CastingController _castingController;
+
 
     // Start is called before the first frame update
     void Start()
     {
         _player = GetComponent<PlayerController>();
         _animator = GetComponent<Animator>();
+        _castingController = FindObjectOfType<CastingController>();
     }
 
     // Update is called once per frame
@@ -31,7 +34,6 @@ public class PlayerAnim : MonoBehaviour
         OnMove();
         //OnRun();
     }
-
 
     #region Movement
 
@@ -80,4 +82,14 @@ public class PlayerAnim : MonoBehaviour
     //}
 
     #endregion
+
+    public void OnCastingStarted() {
+        _animator.SetTrigger("isCasting");
+        _player.isPaused = true;
+    }
+
+    public void OnCastingEnded() {
+        _castingController.OnCasting();
+        _player.isPaused = false;
+    }
 }
