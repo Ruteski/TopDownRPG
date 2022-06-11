@@ -19,10 +19,11 @@ public class Items : MonoBehaviour
     public int TotalWood { get => _totalWood; set => _totalWood = value; }
     public float TotalWater { get => _currentWater; set => _currentWater = value; }
     public int TotalCarrots { get => _carrots; set => _carrots = value; }
+    public int TotalFishes { get => _fishes; set => _fishes = value; }
     public float WaterLimit1 { get => _waterLimit; set => _waterLimit = value; }
     public float CarrotsLimit { get => _carrotsLimit; set => _carrotsLimit = value; }
     public float WoodLimit { get => _woodLimit; set => _woodLimit = value; }
-    public int TotalFishes { get => _fishes; set => _fishes = value; }
+    public float FishesLimit { get => _fishesLimit; set => _fishesLimit = value; }
 
     public void WaterLimit(float water) { 
         if (_currentWater < _waterLimit) {
