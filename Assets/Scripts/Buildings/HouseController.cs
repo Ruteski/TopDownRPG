@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HouseController : MonoBehaviour
 {
+    [SerializeField] private GameObject _houseCollider;
     [SerializeField] private SpriteRenderer _houseSprite;
     [SerializeField] private Transform _point;
     [SerializeField] private Color _startColor;
@@ -41,6 +42,7 @@ public class HouseController : MonoBehaviour
                 _playerAnim.OnHammeringEnded();
                 _houseSprite.color = _endColor;
                 _player.isPaused = false;
+                _houseCollider.SetActive(true);
             } 
         }
     }
