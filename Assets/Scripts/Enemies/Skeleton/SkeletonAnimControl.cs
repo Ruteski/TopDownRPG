@@ -37,7 +37,7 @@ public class SkeletonAnimControl : MonoBehaviour
         if (_skeletonController.Health <= 0) {
             _skeletonController.IsDead = true;
             _animator.SetTrigger("isDeath");
-            Destroy(gameObject, 0.84f);
+            Destroy(_skeletonController.gameObject, 0.84f);
         } else {
             _animator.SetTrigger("isHit");
             _skeletonController.Health--;
