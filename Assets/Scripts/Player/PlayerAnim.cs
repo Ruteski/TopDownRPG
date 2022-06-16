@@ -105,7 +105,7 @@ public class PlayerAnim : MonoBehaviour
 
         if (hit != null) {
             //atacou o inimigo
-            print("acertou o inimigo");
+            hit.GetComponentInChildren<SkeletonAnimControl>().OnHit();
         }
     }
 

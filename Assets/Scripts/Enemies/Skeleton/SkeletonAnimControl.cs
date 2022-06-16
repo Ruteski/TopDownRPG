@@ -10,10 +10,12 @@ public class SkeletonAnimControl : MonoBehaviour
 
     private Animator _animator;
     private PlayerAnim _playerAnim;
+    private SkeletonController _skeletonController;
 
     private void Start() {
         _animator = GetComponent<Animator>();
         _playerAnim = FindObjectOfType<PlayerAnim>();
+        _skeletonController = GetComponentInParent<SkeletonController>();
     }
 
     public void PlayAnim(int value) {
@@ -21,13 +23,26 @@ public class SkeletonAnimControl : MonoBehaviour
     }
     
     public void Attack() {
-        Collider2D hit = Physics2D.OverlapCircle(_attackPoint.position, _radius, _playerLayer);
+        if (!_skeletonController.IsDead) {
+            Collider2D hit = Physics2D.OverlapCircle(_attackPoint.position, _radius, _playerLayer);
 
-        if (hit != null) {
-            //detectou colisao com o player
-            _playerAnim.OnHit();
+            if (hit != null) {
+                //detectou colisao com o player
+                _playerAnim.OnHit();
+            }
+        }
+    }
+
+    public void OnHit() {
+        if (_skeletonController.Health <= 0) {
+            _skeletonController.IsDead = true;
+            _animator.SetTrigger("isDeath");
+            Destroy(gameObject, 0.84f);
         } else {
-            //
+            _animator.SetTrigger("isHit");
+            _skeletonController.Health--;
+
+            _skeletonController.HealthBar.fillAmount = _skeletonController.Health / _skeletonController.TotalHealth;
         }
     }
 
