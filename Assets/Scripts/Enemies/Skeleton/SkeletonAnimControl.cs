@@ -9,9 +9,11 @@ public class SkeletonAnimControl : MonoBehaviour
     [SerializeField] private LayerMask _playerLayer;
 
     private Animator _animator;
+    private PlayerAnim _playerAnim;
 
     private void Start() {
         _animator = GetComponent<Animator>();
+        _playerAnim = FindObjectOfType<PlayerAnim>();
     }
 
     public void PlayAnim(int value) {
@@ -23,7 +25,7 @@ public class SkeletonAnimControl : MonoBehaviour
 
         if (hit != null) {
             //detectou colisao com o player
-            print("bateu no player");
+            _playerAnim.OnHit();
         } else {
             //
         }

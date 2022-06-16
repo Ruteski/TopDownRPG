@@ -18,7 +18,9 @@ public class PlayerAnim : MonoBehaviour
     private PlayerController _player;
     private Animator _animator;
     private CastingController _castingController;
-
+    private bool _isHitting;
+    private float _recoveryTime = 1.5f;
+    private float _timeCount;
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +35,15 @@ public class PlayerAnim : MonoBehaviour
     {
         OnMove();
         //OnRun();
+
+        if (_isHitting) {
+            _timeCount += Time.deltaTime;
+
+            if (_timeCount >= _recoveryTime) {
+                _isHitting = false;
+                _timeCount = 0;
+            }
+        }
     }
 
     #region Movement
@@ -99,5 +110,13 @@ public class PlayerAnim : MonoBehaviour
 
     public void OnHammeringEnded() {
         _animator.SetBool("isHammering", false);
+    }
+
+    public void OnHit() {
+        if (!_isHitting) {
+            _animator.SetTrigger("isHit");
+            _isHitting = true;
+        }
+        
     }
 }
