@@ -63525,14 +63525,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1940598842}
     m_Modifications:
-    - target: {fileID: 796195919499565810, guid: 9cb69f95addfac3498d4932b77da1ab1, type: 3}
-      propertyPath: m_Size.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 796195919499565810, guid: 9cb69f95addfac3498d4932b77da1ab1, type: 3}
-      propertyPath: m_Size.y
-      value: 0.5
-      objectReference: {fileID: 0}
     - target: {fileID: 796195919499565811, guid: 9cb69f95addfac3498d4932b77da1ab1, type: 3}
       propertyPath: m_Name
       value: Slot
