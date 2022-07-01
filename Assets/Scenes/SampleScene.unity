@@ -63468,6 +63468,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 671474870110626562, guid: e9cfe2bdfe650ad4b8a254410bb510df, type: 3}
+      propertyPath: _radius
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 671474870110626562, guid: e9cfe2bdfe650ad4b8a254410bb510df, type: 3}
+      propertyPath: _layerPlayer.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 671474870110626565, guid: e9cfe2bdfe650ad4b8a254410bb510df, type: 3}
       propertyPath: m_RootOrder
       value: 15
